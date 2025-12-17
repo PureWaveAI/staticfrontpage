@@ -1,7 +1,7 @@
 FROM nginx:1.27-alpine
 
 # Copy custom nginx config
-COPY docker/nginx.conf /etc/nginx/nginx.conf
+COPY docker/* /etc/nginx/
 
 # Copy static site assets
 COPY app /var/www/html
