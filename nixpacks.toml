@@ -3,8 +3,8 @@
 PORT = "8080"
 
 [phases.setup]
-# Install nginx from Nixpkgs
-nixPkgs = ['nginx']
+# Install nginx and envsubst (from gettext) from Nixpkgs
+nixPkgs = ['nginx', 'gettext']
 
 [phases.build]
 # Copy the static site (exactly the contents of ./app) into nginx's web root
