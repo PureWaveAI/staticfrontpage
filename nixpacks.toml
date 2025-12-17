@@ -7,7 +7,7 @@ nixPkgs = ['nginx']
 cmd = 'mkdir -p /var/www/html && cp -r app/* /var/www/html/'
 
 [start]
-# Run nginx in the foreground so the container stays alive
-cmd = 'nginx -g "daemon off;"'
+# Ensure log directory exists, then run nginx in the foreground
+cmd = 'mkdir -p /var/log/nginx && nginx -g "daemon off;"'
 
 
