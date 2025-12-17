@@ -8,7 +8,7 @@ nixPkgs = ['nginx']
 cmds = [
   'mkdir -p /var/www/html',
   'cp -r app/. /var/www/html/',
-  'mkdir -p /etc/nginx'
+  'mkdir -p /etc/nginx',
   'cp -r docker/nginx.conf /etc/nginx/nginx.conf'
 ]
 
