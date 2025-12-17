@@ -1,0 +1,19 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /studio/private/
+
+Sitemap: https://purewaveintelligence.com/sitemap.xml
+
+# Crawl-delay for aggressive crawlers
+Crawl-delay: 10
+
+# Allow specific directories
+Allow: /public/
+Allow: /studio/public/
+Allow: /resources/
+
+# Block sensitive files
+Disallow: /*.json$
+Disallow: /*.config$
+Disallow: /*.env$
