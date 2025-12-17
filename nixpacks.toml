@@ -10,4 +10,7 @@ cmd = 'mkdir -p /var/www/html && cp -r app/. /var/www/html/'
 # Ensure log directory exists, then run nginx in the foreground
 cmd = 'mkdir -p /var/log/nginx && nginx -g "daemon off;"'
 
-
+[staticfile]
+# Specify the directory where your static files are located after the build
+# Common directories are "dist", "build", "public", etc.
+publishDir = "build" 
