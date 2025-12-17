@@ -1,3 +1,7 @@
+[variables]
+# Default PORT for local builds; most platforms will override this
+PORT = "8080"
+
 [phases.setup]
 # Install nginx from Nixpkgs
 nixPkgs = ['nginx']
