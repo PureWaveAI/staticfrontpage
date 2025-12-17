@@ -3,8 +3,8 @@
 nixPkgs = ['nginx']
 
 [phases.build]
-# Copy the static site (in ./app) into nginx's web root
-cmd = 'mkdir -p /var/www/html && cp -r app/* /var/www/html/'
+# Copy the static site (exactly the contents of ./app) into nginx's web root
+cmd = 'mkdir -p /var/www/html && cp -r app/. /var/www/html/'
 
 [start]
 # Ensure log directory exists, then run nginx in the foreground
