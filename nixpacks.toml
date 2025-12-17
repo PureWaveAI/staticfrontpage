@@ -18,4 +18,4 @@ cmds = [
 
 [start]
 # Ensure log directory exists, render PORT into nginx.conf, then run nginx
-cmd = 'mkdir -p /var/log/nginx && envsubst \'$PORT\' < /etc/nginx/nginx.conf > /tmp/nginx.conf && nginx -c /tmp/nginx.conf -g "daemon off;"'
+cmd = "mkdir -p /var/log/nginx && envsubst '$PORT' < /etc/nginx/nginx.conf > /tmp/nginx.conf && nginx -c /tmp/nginx.conf -g 'daemon off;'"
