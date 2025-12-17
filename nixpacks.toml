@@ -8,8 +8,8 @@ nixPkgs = ['nginx']
 cmds = [
   'mkdir -p /var/www/html',
   'cp -r app/. /var/www/html/',
-  'mkdir -p /etc/nginx',
-  'cp docker/nginx.conf /etc/nginx/nginx.conf'
+  'mkdir -p /etc/nginx'
+#  'cp docker/nginx.conf /etc/nginx/nginx.conf'
 ]
 
 [start]
