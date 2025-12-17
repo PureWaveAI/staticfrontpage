@@ -1,6 +1,6 @@
 [variables]
 # Default PORT for local builds; most platforms will override this
-PORT = "8080"
+PORT = "80"
 
 [phases.setup]
 # Install nginx and envsubst (from gettext) from Nixpkgs
