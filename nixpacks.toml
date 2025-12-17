@@ -4,13 +4,14 @@ nixPkgs = ['nginx']
 
 [phases.build]
 # Copy the static site (exactly the contents of ./app) into nginx's web root
-cmd = 'mkdir -p /var/www/html && cp -r app/. /var/www/html/'
+# and use our custom nginx config
+cmds = [
+  'mkdir -p /var/www/html',
+  'cp -r app/. /var/www/html/',
+  'mkdir -p /etc/nginx',
+  'cp docker/nginx.conf /etc/nginx/nginx.conf'
+]
 
 [start]
 # Ensure log directory exists, then run nginx in the foreground
 cmd = 'mkdir -p /var/log/nginx && nginx -g "daemon off;"'
-
-[staticfile]
-# Specify the directory where your static files are located after the build
-# Common directories are "dist", "build", "public", etc.
-publishDir = "build" 
