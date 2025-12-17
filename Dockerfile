@@ -1,10 +1,10 @@
 FROM nginx:1.27-alpine
 
 # Copy custom nginx config
-COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+COPY docker/nginx.conf /etc/nginx/nginx.conf
 
 # Copy static site assets
-COPY app /usr/share/nginx/html
+COPY app /var/www/html
 
 EXPOSE 80
 
