@@ -7,7 +7,9 @@ nixPkgs = ['nginx']
 # and use our custom nginx config
 cmds = [
   'mkdir -p /var/www/html',
-  'cp -r app/. /var/www/html/',
+  'cp -r app/. /var/www/html/'
+ ]
+cmds = [
   'mkdir -p /etc/nginx',
   'cp -r docker/* /etc/nginx/'
 ]
