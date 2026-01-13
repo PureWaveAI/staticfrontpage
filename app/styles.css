@@ -953,6 +953,62 @@ p {
     resize: vertical;
 }
 
+/* Form Success/Error Messages */
+.form-success-message,
+.form-error-message {
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    animation: slideIn 0.3s ease-out;
+}
+
+.form-success-message {
+    background: rgba(0, 196, 180, 0.1);
+    border: 2px solid var(--quantum-teal);
+    color: var(--deep-indigo);
+}
+
+.form-error-message {
+    background: rgba(220, 53, 69, 0.1);
+    border: 2px solid #dc3545;
+    color: #dc3545;
+}
+
+.form-success-message .success-icon,
+.form-error-message .error-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.form-success-message .success-icon {
+    color: var(--quantum-teal);
+}
+
+.form-error-message .error-icon {
+    color: #dc3545;
+}
+
+.form-success-message p,
+.form-error-message p {
+    margin: 0;
+    font-weight: var(--font-weight-medium);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Footer */
 .footer {
     background: var(--deep-indigo);

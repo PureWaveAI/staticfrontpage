@@ -96,37 +96,80 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form Submission Handling
+    // Form Submission Handling with Formspree
     const inquiryForm = document.getElementById('inquiry-form');
     if (inquiryForm) {
-        inquiryForm.addEventListener('submit', function(e) {
+        inquiryForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const interest = document.getElementById('interest').value;
-            const message = document.getElementById('message').value;
-            
-            // Simple validation
-            if (!name || !email || !interest || !message) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // Show success message (in a real app, this would send to server)
-            const submitButton = this.querySelector('button[type="submit"]');
+            // Get form elements
+            const submitButton = document.getElementById('submit-button');
+            const successMessage = document.getElementById('form-success-message');
+            const errorMessage = document.getElementById('form-error-message');
             const originalText = submitButton.textContent;
             
+            // Hide previous messages
+            if (successMessage) successMessage.style.display = 'none';
+            if (errorMessage) errorMessage.style.display = 'none';
+            
+            // Update button state
             submitButton.textContent = 'Sending...';
             submitButton.disabled = true;
             
-            setTimeout(() => {
-                alert(`Thank you, ${name}! We've received your inquiry about ${interest} and will respond shortly.`);
-                this.reset();
+            // Get form data
+            const formData = new FormData(this);
+            
+            try {
+                // Submit to Formspree
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    if (successMessage) {
+                        successMessage.style.display = 'block';
+                        // Scroll to success message
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    // Redirect to Formspree thank you page after 3 seconds
+                    setTimeout(() => {
+                        window.location.href = 'https://formspree.io/thanks';
+                    }, 3000);
+                } else {
+                    // Handle error
+                    const data = await response.json();
+                    if (errorMessage) {
+                        errorMessage.style.display = 'block';
+                        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                    
+                    // Re-enable button
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                    
+                    console.error('Form submission error:', data);
+                }
+            } catch (error) {
+                // Network or other error
+                console.error('Form submission error:', error);
+                if (errorMessage) {
+                    errorMessage.style.display = 'block';
+                    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+                
+                // Re-enable button
                 submitButton.textContent = originalText;
                 submitButton.disabled = false;
-            }, 1500);
+            }
         });
     }
     
