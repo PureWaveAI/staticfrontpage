@@ -1059,7 +1059,7 @@ p {
 }
 
 .footer-links a {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(7, 0, 0, 0.8);
     text-decoration: none;
     transition: var(--transition-fast);
 }
@@ -1092,7 +1092,7 @@ p {
 }
 
 .legal-links a {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(7, 0, 0, 0.8);
     text-decoration: none;
     transition: var(--transition-fast);
 }
