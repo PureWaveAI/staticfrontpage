@@ -273,11 +273,11 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(`
         %c✨ Pure Wave Intelligence ✨
         %cMaking Analog AI the new operating system for human progress
-        %chttps://purewaveintelligence.com
+        %chttps://purewave.ai
         
         ℹ️ This console is part of our development environment.
-        For partnership inquiries: partnerships@purewaveintelligence.com
-        For studio support: help@purewavestudio.com
+        For partnership inquiries: partnerships@purewave.ai
+        For studio support: help@purewave.ai
     `, 
     'font-size: 24px; font-weight: bold; color: #00C4B4; text-shadow: 0 0 10px rgba(0, 196, 180, 0.5);',
     'font-size: 16px; color: #2A2D5E; font-weight: 500;',
