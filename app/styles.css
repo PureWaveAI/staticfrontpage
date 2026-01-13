@@ -13,6 +13,7 @@
     
     
     /* Supporting Colors */
+    --deep-indigo: #3A2D6E; /* Alias for quantum-superposition for consistency */
     --warm-graphite: #4A4F5C; /* Remains for professionalism */
     --lumina-white: #F8F9FC; /* Remains for openness */
     --light-gray: #E9ECEF;
@@ -1023,7 +1024,7 @@ p {
 }
 
 .footer-brand p {
-    color: rgba(7, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.8);
     margin: 1rem 0;
 }
 
@@ -1059,7 +1060,7 @@ p {
 }
 
 .footer-links a {
-    color: rgba(7, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     transition: var(--transition-fast);
 }
@@ -1092,7 +1093,7 @@ p {
 }
 
 .legal-links a {
-    color: rgba(7, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     transition: var(--transition-fast);
 }
