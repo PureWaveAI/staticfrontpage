@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form Submission Handling with Formspree
+    // Form Submission Handling with Formspree (with native fallback)
     const inquiryForm = document.getElementById('inquiry-form');
     if (inquiryForm) {
         inquiryForm.addEventListener('submit', async function(e) {
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = new FormData(this);
             
             try {
-                // Submit to Formspree
+                // Submit to Formspree via AJAX
                 const response = await fetch(this.action, {
                     method: 'POST',
                     body: formData,
@@ -145,30 +145,23 @@ document.addEventListener('DOMContentLoaded', function() {
                         window.location.href = 'https://formspree.io/thanks';
                     }, 3000);
                 } else {
-                    // Handle error
+                    // Handle error response from Formspree (e.g., validation)
                     const data = await response.json();
                     if (errorMessage) {
                         errorMessage.style.display = 'block';
                         errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                     }
                     
-                    // Re-enable button
+                    // Re-enable button so user can correct and resubmit
                     submitButton.textContent = originalText;
                     submitButton.disabled = false;
                     
                     console.error('Form submission error:', data);
                 }
             } catch (error) {
-                // Network or other error
-                console.error('Form submission error:', error);
-                if (errorMessage) {
-                    errorMessage.style.display = 'block';
-                    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
-                
-                // Re-enable button
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
+                // Network/CORS/other error: fall back to native form submission
+                console.error('Form submission error, falling back to native submit:', error);
+                this.submit();
             }
         });
     }

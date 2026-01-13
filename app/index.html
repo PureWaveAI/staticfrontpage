@@ -386,6 +386,9 @@
                     <form id="inquiry-form" action="https://formspree.io/f/xpqqzjgz" method="POST">
                         <!-- Honeypot field for spam protection (hidden from users) -->
                         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+                        <!-- Redirect URL for non-JS fallback submissions -->
+                        <input type="hidden" name="_redirect" value="https://formspree.io/thanks">
                         
                         <!-- Form fields -->
                         <div class="form-group">
