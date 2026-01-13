@@ -1035,7 +1035,7 @@ p {
 }
 
 .social-links a {
-    color: white;
+    color: grey;
     text-decoration: none;
     font-weight: var(--font-weight-bold);
     transition: var(--transition-fast);
@@ -1046,7 +1046,7 @@ p {
 }
 
 .footer-links h4 {
-    color: white;
+    color: var(--warm-graphite);
     margin-bottom: 1.5rem;
     font-size: 1.25rem;
 }
